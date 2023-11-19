@@ -8,6 +8,7 @@ require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 $config = include './config.php';
 
+print_r($config);
 $email = $config['email'];
 $senha = $config['senha'];
 
@@ -16,8 +17,8 @@ if(isset($_POST["btnSend"])){
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
-    $mail->Port = 587;
-    $mail->SMTPSecure = 'tls';
+    $mail->Port = 8000;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->SMTPAuth = true;
     $mail->Username = $email;
     $mail->Password = $senha;
@@ -25,7 +26,8 @@ if(isset($_POST["btnSend"])){
     $mail->SMTPDebug = 2; // Habilita o modo de depuração
 
     // Configurações do email
-    $mail->setFrom('afonsofernando2001@gmail.com');
+    $mail->isHTML(true);
+    $mail->setFrom($email);
     $mail->addAddress($_POST['email'], $_POST['nome']);
     $mail->Body = $_POST['mensagem'];
     
