@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Questao-3.css">
+    <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handel+Gothic:wght@700&display=swap">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
     <title>Construsite Brasil</title>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input class = "btn btn-success btn-block"  name="btnSend" type="submit" value="Enviar Mensagem">
+                        <input class = "btn btn-success btn-block" name="btnSend" type="submit" value="Enviar Mensagem">
                         <a name="formulario"></a>
                         <div class="mensagem-alerta"><?php echo $msg ?></div>
                     </div>
