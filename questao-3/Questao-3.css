@@ -1,0 +1,40 @@
+.logo{
+    color: #fff;
+    background-color: #1989fa;;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#sections{
+    display: flex;
+}
+
+#client-name{
+    font-family: 'Handel gothic itc w02 bold', sans-serif;
+    font-size: 22px;
+    margin-top: 9%;
+    margin-left: 9%;
+}
+
+#client-name h3{
+    color: #0f7db8;
+}
+
+#construsite-img{
+    margin-left: 6%;
+}
+
+form{
+    max-width: 800px;
+    padding-top: 30px;
+    display: block;
+    margin: 0 auto;
+}
+.mensagem-alerta{
+    max-width: 500px;
+    margin: 20px auto;
+}
