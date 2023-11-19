@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./Questao-3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handel+Gothic:wght@700&display=swap">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
-    <title>Document</title>
+    <title>Construsite Brasil</title>
 </head>
 <body>
     <header class="logo">
@@ -20,8 +20,8 @@
             </div>
         </div>
         <div id="second-section" class="col-sm-6">
-            <form class="form-horizontal" action="index.php#formulario" method="post" role="form" data-toggle="validator">
-                <h3 class="text-left subtitle-construsite">Mensagem</h3>
+            <form class="form-horizontal" action="ClassSendMessage.php" method="post" role="form" data-toggle="validator">
+                <h3 class="text-left subtitle-construsite construsite-msg-subtitle">Mensagem</h3>
                 <div class="form-group">
                     <label class="col-sm-3">Nome*:</label>
                     <div class="col-sm-9">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input class = "btn btn-success btn-block" id="submit" name="btnSend" type="submit" value="Enviar Mensagem">
+                        <input class = "btn btn-success btn-block"  name="btnSend" type="submit" value="Enviar Mensagem">
                         <a name="formulario"></a>
                         <div class="mensagem-alerta"><?php echo $msg ?></div>
                     </div>
@@ -65,5 +65,20 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#submit').on('click', function (e) {
+                e.preventDefault();
+                // Executar as validações do validator
+                $('#second-section form').validator('validate');
+
+                // Se todos os campos estiverem válidos, você pode enviar o formulário
+                if (!$('#second-section form').find('.has-error').length) {
+                    // Adicione aqui a lógica para enviar o formulário
+                    $('#second-section form')[0].submit();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

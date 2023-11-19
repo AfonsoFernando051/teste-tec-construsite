@@ -39,6 +39,10 @@
     margin-left: 6%;
 }
 
+.construsite-msg-subtitle{
+    padding-bottom: 5%;
+}
+
 form{
     font-family: "Handel Gothic W02";
     max-width: 800px;
