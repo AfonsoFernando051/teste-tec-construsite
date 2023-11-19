@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Handel Gothic W02 Bold";
+    src: url("https://db.onlinewebfonts.com/t/83637255adf8b8192d61945c8b301f7c.eot");
+    src: url("https://db.onlinewebfonts.com/t/83637255adf8b8192d61945c8b301f7c.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/83637255adf8b8192d61945c8b301f7c.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/83637255adf8b8192d61945c8b301f7c.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/83637255adf8b8192d61945c8b301f7c.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/83637255adf8b8192d61945c8b301f7c.svg#Handel Gothic W02 Bold")format("svg");
+}
+
 .logo{
     color: #fff;
     background-color: #1989fa;;
@@ -14,13 +24,14 @@
 }
 
 #client-name{
-    font-family: 'Handel gothic itc w02 bold', sans-serif;
+    font-family: "Handel Gothic W02";
     font-size: 22px;
     margin-top: 9%;
     margin-left: 9%;
 }
 
-#client-name h3{
+.subtitle-construsite{
+    font-family: "Handel Gothic W02 Bold";
     color: #0f7db8;
 }
 
@@ -29,6 +40,7 @@
 }
 
 form{
+    font-family: "Handel Gothic W02";
     max-width: 800px;
     padding-top: 30px;
     display: block;
