@@ -87,8 +87,11 @@
                     // Enviar a solicitação ao servidor usando XMLHttpRequest ou fetch API
                     fetch('http://localhost:8000/API/ClassSendMessage.php', {
                         method: 'POST',
-                        body: new URLSearchParams(formData).toString(),
-                        mode: 'no-cors'
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData), // Converte o objeto em uma string JSON
+                        mode: 'cors' // Use 'cors' se o servidor permitir requisições cross-origin
                     })
                     .then(response => response.json())
                     .then(data => {
