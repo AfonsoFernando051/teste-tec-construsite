@@ -20,7 +20,7 @@
             </div>
         </div>
         <div id="second-section" class="col-sm-6">
-            <form class="form-horizontal" action="ClassSendMessage.php" method="post" role="form" data-toggle="validator">
+            <form class="form-horizontal" method="post" id="submit" role="form" data-toggle="validator">
                 <h3 class="text-left subtitle-construsite construsite-msg-subtitle">Mensagem</h3>
                 <div class="form-group">
                     <label class="col-sm-3">Nome*:</label>
@@ -46,16 +46,15 @@
                 <div class="form-group">
                     <label class="col-sm-3">Mensagem*:</label>
                     <div class="col-sm-9">
-                        <textarea class="form-control" id="exampleTextarea" rows="6" 
+                        <textarea class="form-control" rows="6" 
                                     id="mensagem" name="mensagem" placeholder="sua mensagem" required></textarea>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input class = "btn btn-success btn-block" name="btnSend" type="submit" value="Enviar Mensagem">
+                        <input class = "btn btn-success btn-block" name="btnSend" id="btnSend" type="submit" value="Enviar Mensagem">
                         <a name="formulario"></a>
-                        <div class="mensagem-alerta"><?php echo $msg ?></div>
                     </div>
                 </div>
             </form>
@@ -67,15 +66,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#submit').on('click', function (e) {
+            $('#submit').on('submit',  function (e) {
                 e.preventDefault();
-                // Executar as validações do validator
-                $('#second-section form').validator('validate');
 
-                // Se todos os campos estiverem válidos, você pode enviar o formulário
-                if (!$('#second-section form').find('.has-error').length) {
-                    // Adicione aqui a lógica para enviar o formulário
-                    $('#second-section form')[0].submit();
+                var form = $('#submit')[0];
+
+                // Executar as validações do validator
+                $(form).validator('validate');
+
+                // Se todos os campos estiverem válidos e enviado o formulário
+                if (!$(form).find('.has-error').length) {
+                    // Coletar os dados do formulário
+                    var formData = {
+                        nome: $('#nome').val(),
+                        telefone: $('#telefone').val(),
+                        email: $('#email').val(),
+                        mensagem: $('#mensagem').val()
+                    };
+                    
+                    // Enviar a solicitação ao servidor usando XMLHttpRequest ou fetch API
+                    fetch('http://localhost:8000/API/ClassSendMessage.php', {
+                        method: 'POST',
+                        body: new URLSearchParams(formData).toString(),
+                        mode: 'no-cors'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Verificar se há sucesso ou erro
+                        if (data.sucesso) {
+                            alert(data.mensagem);
+                        } else {
+                            alert('Erro: ' + data.mensagem); // exibir erros de validação
+                        }
+                    })
+                    .catch(error => {
+                        console.log(formData);
+                        console.error('Erro na solicitação:', error);
+                    });
                 }
             });
         });
