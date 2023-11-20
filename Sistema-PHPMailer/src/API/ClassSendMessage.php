@@ -5,8 +5,8 @@ header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Max-Age: 3600');
 header('Content-Type: application/json');
 
-require '../vendor/autoload.php';
-include '../Validator/ClassValidaEmail.php';
+require '../../vendor/autoload.php';
+include '../../src/Validator/ClassValidaEmail.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;

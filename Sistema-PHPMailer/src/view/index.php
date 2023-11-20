@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="logo">
-        <img src="./assets/logo-construsite-new.png" alt="logo principal" id="construsite-img">
+        <img src="../assets/logo-construsite-new.png" alt="logo principal" id="construsite-img">
     </header>
     <div id="sections" class="container-fluid">
         <div id="first-section" class="col-sm-6">
