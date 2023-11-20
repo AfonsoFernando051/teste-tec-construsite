@@ -17,10 +17,10 @@ $passwordLocal = $config['senha'];
 $nameLocal = $config['name'];
 
 // Dados do formulário
-$nameToSend = $_POST['nome'] ? !empty($_POST['nome']) : "" ;
-$cellToSend = $_POST['telefone'] ? !empty($_POST['telefone']) : "" ;
-$emailToSend = $_POST['email'] ? !empty($_POST['email']) : "" ;
-$messageToSend = $_POST['mensagem'] ? !empty($_POST['mensagem']) : "" ;
+$nameToSend = $_POST['nome'] ? !empty($_POST['nome']) : "teste-nome" ;
+$cellToSend = $_POST['telefone'] ? !empty($_POST['telefone']) : "teste-cell" ;
+$emailToSend = $_POST['email'] ? !empty($_POST['email']) : "teste@gmail.com" ;
+$messageToSend = $_POST['mensagem'] ? !empty($_POST['mensagem']) : "teste-message" ;
 
 // Validar os campos
 if (empty($nameToSend) || empty($cellToSend) || empty($emailToSend) || empty($messageToSend)) {
