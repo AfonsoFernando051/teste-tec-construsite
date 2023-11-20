@@ -76,7 +76,6 @@
 
                 // Se todos os campos estiverem válidos e enviado o formulário
                 if (!$(form).find('.has-error').length) {
-                    // Coletar os dados do formulário
                     var formData = {
                         nome: $('#nome').val(),
                         telefone: $('#telefone').val(),
@@ -90,20 +89,18 @@
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify(formData), // Converte o objeto em uma string JSON
-                        mode: 'cors' // Use 'cors' se o servidor permitir requisições cross-origin
+                        body: JSON.stringify(formData), 
+                        mode: 'cors'
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Verificar se há sucesso ou erro
                         if (data.sucesso) {
                             alert(data.mensagem);
                         } else {
-                            alert('Erro: ' + data.mensagem); // exibir erros de validação
+                            alert('Erro: ' + data.mensagem);
                         }
                     })
                     .catch(error => {
-                        console.log(formData);
                         console.error('Erro na solicitação:', error);
                     });
                 }
